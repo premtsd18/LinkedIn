@@ -38,9 +38,9 @@ public class AuthService {
         for(String role:signupRequestDto.getRoles()){
             Optional<Role> optionalRole= roleRepository.findByName(role);
             if(!optionalRole.isPresent()){
-                  Role newRole=new Role();
-                  newRole.setName(role);
-                  Role savedRole = roleRepository.save(newRole);
+//                  Role newRole=new Role();
+//                  newRole.setName(role);
+//                  Role savedRole = roleRepository.save(newRole);
                 throw new BadRequestException("Role does not exist. - " + role);
             }
             roleSet.add(optionalRole.get());
